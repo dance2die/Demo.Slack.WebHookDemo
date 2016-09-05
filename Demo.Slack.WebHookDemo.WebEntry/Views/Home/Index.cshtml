@@ -19,7 +19,7 @@
 							}
 						};
 						var privateMessageText = JSON.stringify(data);
-						privateMessageText = 'payload={"text": \"' + privateMessage + '\"}}';
+						privateMessageText = 'payload={"text": "' + privateMessage + '", "username": "somebot"}';
 						console.log(privateMessageText);
 
 						var url = 'https://hooks.slack.com/services/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';
