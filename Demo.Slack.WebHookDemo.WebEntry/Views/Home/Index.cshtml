@@ -5,46 +5,45 @@
 
 @section postScripts {
 	<script>
-	$(document)
-		.ready(function() {
-			$('#submitButton')
-				.click(function(event) {
-					event.preventDefault();
+		$(document)
+			.ready(function () {
+				$('#submitButton')
+					.click(function (event) {
+						event.preventDefault();
 
-					//var privateMessage = encodeURIComponent($('#privateMessage').text());
-					var privateMessage = $('#privateMessage').text();
-					var data = {
-						payload: {
-							text: privateMessage
-						}
-					};
-					var privateMessageText = JSON.stringify(data);
-					privateMessageText = 'payload={"text": \"' + privateMessage + '\"}}';
-					console.log(privateMessageText);
+						//var privateMessage = encodeURIComponent($('#privateMessage').text());
+						var privateMessage = $('#privateMessage').text();
+						var data = {
+							payload: {
+								text: privateMessage
+							}
+						};
+						var privateMessageText = JSON.stringify(data);
+						privateMessageText = 'payload={"text": \"' + privateMessage + '\"}}';
+						console.log(privateMessageText);
 
-					var url = 'https://hooks.slack.com/services/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';
+						var url = 'https://hooks.slack.com/services/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';
 
-					$.post(url, privateMessageText)
-						.done(function(data) {
-							alert('Success!');
+						//$.post(url, privateMessageText)
+						//	.done(function(data) {
+						//		alert('Success!');
+						//	})
+						//	.fail(function(jqXHR, textStatus, errorThrown) {
+						//		alert(textStatus);
+						//	});
+
+						$.ajax({
+							method: 'POST',
+							data: privateMessageText,
+							url: url
 						})
-						.fail(function(jqXHR, textStatus, errorThrown) {
-							alert(textStatus);
-						});
-
-					//$.ajax({
-					//		method: 'POST',
-					//		data: privateMessageText,
-					//		url: url,
-					//		dataType: 'json'
-					//	})
-					//	.done(function(data) {
-					//		alert('Success!');
-					//	})
-					//	.fail(function(jqXHR, textStatus, errorThrown) {
-					//		alert(textStatus);
-					//	});
-				});
+							.done(function (data) {
+								alert('Success!');
+							})
+							.fail(function (jqXHR, textStatus, errorThrown) {
+								alert(textStatus);
+							});
+					});
 			});
 	</script>
 }
