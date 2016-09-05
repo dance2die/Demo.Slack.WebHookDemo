@@ -1,0 +1,9 @@
+{
+  "name": "demo.slack.webhookdemo.webentry",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "jquery": "^3.1.0",
+    "bootstrap": "^3.3.7"
+  }
+}
